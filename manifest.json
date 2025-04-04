@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Cookie Monster",
+  "version": "1.0",
+  "description": "Eat up cookies and Spit out the truth.",
+  "action": {
+    "default_popup": "extension.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["<all_urls>"],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting"
+  ]
+}
