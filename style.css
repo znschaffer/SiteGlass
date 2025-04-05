@@ -107,7 +107,6 @@ p {
 }
 
 .box p {
-
     margin: 0; /* Remove default margin */
     padding: 4px 4px 12px 4px; /* Padding for spacing */
     font-size: 28px; /* Font size for the paragraph */
@@ -185,11 +184,37 @@ p {
     background: #FFFFFF;
 }
 
+.hide {
+    display: none;
+}
 .tab {
     background: #FFFFFF;
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+#cookieStats {
+    padding-top: 16px;
+}
+#cookieStats h3 {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Josefin Sans, serif;
+    text-align: left;
+    padding: 0px;
+    margin: 0;
+}
+#cookieStats p {
+    font-size: 14px;
+    font-family: Josefin Sans, serif;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+}
+
+#cookieBox:hover {
+    cursor: pointer;
+    background:lightgrey;
 }
 
 
