@@ -1,12 +1,25 @@
-chrome.runtime.sendMessage({from: "popup", action: "getSiteRating"}, (response) => {
-    document.getElementById("rating").innerHTML = response.rating
-    document.getElementById("siteName").innerHTML = response.urls[0]
+chrome.runtime.sendMessage({from: "popup", action: "getSiteRating"}, ({service, concerns}) => {
+    let ratingElement = document.getElementById("rating")
+    if (ratingElement) ratingElement.textContent = service.rating
+
+    let concernsElement = document.getElementById("concerns");
+    for (let i = 0; i < concerns.points.length; i++) {
+        let temp = document.createElement("li");
+        if (concerns.points[i].case.classification === "bad") {
+            temp.innerText = concerns.points[i].title;
+            concernsElement?.appendChild(temp);
+        }
+    }
+    let siteName = document.getElementById("siteName");
+    if (siteName) siteName.innerHTML = service.urls[0]
 });
 
-document.getElementById("clearCache").addEventListener("click", () => {
+let clearCacheButton = document.getElementById("clearCache");
+
+if (clearCacheButton) clearCacheButton.addEventListener("click", () => {
     chrome.runtime.sendMessage({from: "popup", action: "clearCache"}, (response) => {
-        document.getElementById("clearCache").innerHTML = "Cache Cleared";
-        document.getElementById("clearCache").disabled = "none";
+        clearCacheButton.innerHTML = "Cache Cleared";
+        clearCacheButton.disabled = true;
     })
 })
 
@@ -30,3 +43,4 @@ document.querySelectorAll('.tabButton').forEach(button => {
 
 // Initially show the first tab
 document.querySelector('.tabButton--active').click();
+
