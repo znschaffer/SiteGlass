@@ -62,9 +62,25 @@ chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
 // Populate the alternative site info
         document.getElementById("searchChoice").textContent = siteAlternatives.search;
         document.getElementById("altChoice").textContent = "consider " + siteAlternatives.alternative + " instead!";
+
+        
+        // Flash Icon
+        for (let i = 0; i < 4; i++) {
+            chrome.action.setIcon({
+                path: "icons/Inactive Favicon.png"
+            });
+            wait(1000).then();
+            chrome.action.setIcon({
+                path: "icons/Active_Favicon.png"
+            });
+            wait(1000).then();
+        }
+
+
         let altLink = document.getElementById("altLink");
         if (siteAlternatives.link == "none"){
             document.getElementById("altChoice").textContent = siteAlternatives.alternative
+            
         }
         altLink.addEventListener("click", () => {
             // Open the alternative link in a new tab
@@ -74,7 +90,6 @@ chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
                 alert("No alternative link available.");
             }
         })
-
     }
 
 })
@@ -201,4 +216,10 @@ function organizeCookies(cookies, category) {
     });
 
     return bucket;
+}
+
+// Helper Wait Function
+
+function wait() {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
