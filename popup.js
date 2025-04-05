@@ -60,8 +60,11 @@ chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
 
 // Populate the alternative site info
         document.getElementById("searchChoice").textContent = siteAlternatives.search;
-        document.getElementById("altChoice").textContent = siteAlternatives.alternative;
+        document.getElementById("altChoice").textContent = "consider " + siteAlternatives.alternative + " instead!";
         let altLink = document.getElementById("altLink");
+        if (siteAlternatives.link == "none"){
+            document.getElementById("altChoice").textContent = siteAlternatives.alternative
+        }
         altLink.addEventListener("click", () => {
             // Open the alternative link in a new tab
             if (siteAlternatives.link && siteAlternatives.link !== "none") {
