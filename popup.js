@@ -25,12 +25,19 @@ chrome.runtime.sendMessage({ from: "popup", action: "getBreaches" }, (response) 
     console.log(response);
 });
 
-let clearCacheButton = document.getElementById("clearCache");
-
-if (clearCacheButton) clearCacheButton.addEventListener("click", () => {
-    chrome.runtime.sendMessage({from: "popup", action: "clearCache"}, (response) => {
-        clearCacheButton.innerHTML = "Cache Cleared";
-        clearCacheButton.disabled = true;
+// document.getElementById("clearCache").addEventListener("click", () => {
+//     chrome.runtime.sendMessage({from: "popup", action: "clearCache"}, (response) => {
+//         document.getElementById("clearCache").innerHTML = "Cache Cleared";
+//         document.getElementById("clearCache").disabled = "none";
+//     })
+// })
+//
+// document.getElementById("clearCache").addEventListener("click", () => {
+//     chrome.runtime.sendMessage({from: "popup", action: "clearCache"}, (response) => {
+//         document.getElementById("clearCache").innerHTML = "Cache Cleared";
+//         document.getElementById("clearCache").disabled = "none";
+//     })
+// })
 
 
 document.querySelectorAll('.tabButton').forEach(button => {
