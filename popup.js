@@ -4,6 +4,6 @@ chrome.runtime.sendMessage({ from: "popup", action: "getData" }, (response) => {
 });
 
 chrome.runtime.sendMessage({ from: "popup", action: "getBreaches" }, (response) => {
-    document.getElementById("hostName").innerHTML = response.name;
+    document.getElementById("hostName").innerHTML = Object.keys(response).length; // Return the Amount of Responses
     console.log(response);
 });
