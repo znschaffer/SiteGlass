@@ -8,16 +8,22 @@ chrome.runtime.sendMessage({from: "popup", action: "getSiteRating"}, (response) 
     if (ratingElement) ratingElement.textContent = service.rating
 
     let concernsElement = document.getElementById("concerns");
+    let count = 0;
     for (let i = 0; i < concerns.points.length; i++) {
+        if (count >= 3) {
+            break;
+        }
         let temp = document.createElement("li");
         if (concerns.points[i].case.classification === "bad") {
             temp.innerText = concerns.points[i].title;
             concernsElement?.appendChild(temp);
+            count++;
         }
     }
     let siteName = document.getElementById("siteName");
     if (siteName) siteName.innerHTML = service.urls[0]
 });
+
 chrome.runtime.sendMessage({ from: "popup", action: "getBreaches" }, (response) => {
     document.getElementById("hostBreaches").innerHTML = Object.keys(response).length; // the Amount of Breaches
         let totalPwnCount = 0;
