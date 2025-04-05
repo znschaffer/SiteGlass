@@ -1,7 +1,7 @@
 body {
     background: #981E32;
     width: 350px;
-    height: 400px;
+    height: fit-content;
     margin: 8px;
     font-size: 18px;
     font-family: Josefin Sans, serif;
@@ -10,35 +10,88 @@ body {
     flex-direction: column;
 }
 
+#privacy {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+p {
+    font-family: Young Serif, serif; /* Fallback font for better readability */
+}
+
+.ratingBox {
+    border-radius: 8px;
+    padding: 4px; /* Padding inside the box */
+    background: #EBEBEB;
+    flex: 1 0 0;
+}
+
+
+.summaryBox {
+    border-radius: 8px;
+    padding: 8px; /* Padding inside the box */
+    background: #EBEBEB;
+    flex: 1 0 0;
+    margin:auto;
+}
+
 #breaches {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 }
 
 .row {
     display: flex;
-    gap: 16px;
+    gap: 8px;
     flex: 1;
 }
 
+.summaryRow {
+    display: flex;
+    gap: 16px;
+    margin-top:auto;
+    margin-bottom: auto;
+}
+
+.summaryRow summary:hover {
+    cursor: pointer;
+}
+.summaryRow ul {
+    font-size:16px;
+    padding: 0px 18px;
+    font-weight: 300;
+    list-style: circle;
+}
+.summaryRow ul li {
+    padding: 8px 0px;
+}
+
 .row > div {
-    flex: 1;
+    flex: 1 0 0;
 }
 
 .box-large {
     min-width: 180px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     border-radius: 8px;
     padding: 4px; /* Padding inside the box */
     background: #EBEBEB;
-    flex: 1;
+
 }
 
 .box {
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
     border-radius: 8px;
-    padding: 4px; /* Padding inside the box */
+    padding: 8px; /* Padding inside the box */
     background: #EBEBEB;
-    flex: 1;
+
 }
 
 .box h2 {
@@ -51,8 +104,9 @@ body {
 }
 
 .box p {
+
     margin: 0; /* Remove default margin */
-    padding: 16px 4px 4px 0px; /* Padding for spacing */
+    padding: 4px 4px 12px 4px; /* Padding for spacing */
     font-size: 28px; /* Font size for the paragraph */
     font-weight: 400; /* Normal weight for the text */
     text-align: center; /* Align text to the left */
@@ -70,8 +124,9 @@ body {
 }
 
 .box-large p {
+    flex: 1;
     margin: 0; /* Remove default margin */
-    padding: 16px 4px 4px 0px; /* Padding for spacing */
+    padding: 4px 4px 12px 4px; /* Padding for spacing */
     font-size: 28px; /* Font size for the paragraph */
     font-weight: 400; /* Normal weight for the text */
     text-align: center; /* Align text to the left */
@@ -80,7 +135,7 @@ body {
 }
 
 .container {
-    flex-grow: 1;
+   flex: 1;
     background: #FFFFFF;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;

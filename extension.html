@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
-          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Young+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -22,10 +23,31 @@
 <div class="container">
 
     <div class="tab" id="privacy">
-        <h2 id="siteName">Loading...</h2>
-        <p>Rating: <span id="rating">N/A</span></p>
-      <p>Concerns:</p>
-      <ul id="concerns"></ul>
+
+        <div class="box">
+            <h2>Website:</h2>
+            <p><span id="siteName">Loading...</span></p>
+        </div>
+
+        <div class="row">
+            <div class="box" style="max-width: 74px; flex-direction: row; align-items: center; justify-content: center;">
+                <h2 style="text-orientation: mixed; ; writing-mode: sideways-lr">Grade:</h2>
+                <p id="rating" style="padding-top: 16px; font-size: 48px"></p>
+            </div>
+            <div class="box">
+                <h2>Cookies:</h2>
+                <p id="cookies">Loading...</p>
+            </div>
+        </div>
+        <div class="summaryRow">
+            <div class="summaryBox">
+                <details >
+                    <summary>Possible Concerns</summary>
+                    <ul id="concerns"></ul>
+                </details>
+            </div>
+        </div>
+
     </div>
     <div class="tab" id="alternatives">
 
@@ -36,6 +58,7 @@
             <h2>Website:</h2>
             <p><span id="hostName">Loading...</span></p>
         </div>
+
         <div class="row">
             <div class="box-large">
                 <h2>People Affected:</h2>
@@ -49,6 +72,7 @@
 
             </div>
         </div>
+
         <div class="row">
             <div class="box-large">
                 <h2>Last Breached:</h2>
@@ -56,7 +80,7 @@
 
             </div>
             <div class="box">
-                <h2>Learn More</h2>
+                <p style="font-size: 22px; padding: 4px">Learn More</p>
             </div>
         </div>
 
