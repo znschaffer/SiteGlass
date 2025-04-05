@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (response && response.cookies) {
-            const cookiesList = response.cookies.map(cookie => `${cookie.name}: ${cookie.value}`);
+            const cookiesList = response.cookies.map(cookie => `${cookie.name}: ${cookie.value}: ${cookie.domain}`);
             document.getElementById("getCookies").textContent = cookiesList.join(", ");
             //document.getElementById("getCookiesCount").textContent = response.cookiesList.size;
 
@@ -109,6 +109,25 @@ document.addEventListener("DOMContentLoaded", () => {
             }
     });
 
+    chrome.runtime.sendMessage({ from: "popup", action: "firstPartyCookies" }, (response) => {
+
+        if (response && response.cookies && response.domain) {
+            firstPartyArray = []
+            response.cookies.forEach(cookie => {
+
+                if(cookie.domain.includes(response.domain))
+                {
+                    firstPartyArray.push(cookie);
+                }
+            });
+            document.getElementById("firstPartyCookies").textContent = firstPartyArray.length;
+
+
+        } else {
+                console.error("No cookies received.");
+            }
+    });
+
 });
 
 
@@ -125,14 +144,14 @@ function organizeCookies(cookies) {
             categories.functional.push(cookie);
         } else if (cookie.name.includes("analytics") || cookie.name.includes("track")) {
             categories.analytical.push(cookie);
-        } else if (cookie.name.includes("ad") || cookie.name.includes("campaign")) {
+        } else if (cookie.name.includes("ad") || cookie.name.includes("campaign") || cookie.name.includes("sid")) {
             categories.marketing.push(cookie);
         } else {
             categories.misc.push(cookie);
         }
     });
 
-    // Add counts for each category
+
     const counts = {
         functional: categories.functional.length,
         analytical: categories.analytical.length,
@@ -142,3 +161,4 @@ function organizeCookies(cookies) {
 
     return { categories, counts };
 }
+

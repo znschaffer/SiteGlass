@@ -95,5 +95,21 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             });
             return true;
         }
+
+        if (request.action === "firstPartyCookies") {
+            chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            chrome.cookies.getAll({ url: tabs[0].url }).then((cookies) => {
+              url = new URL(tabs[0].url);
+              domain = url.hostname;
+
+              sendResponse({ success: true, domain, cookies});
+
+                }).catch((error) => {
+                    console.error(error);
+                    sendResponse({ success: false, error: "Failed to retrieve cookies." });
+                });
+            });
+            return true;
+        }
 });
 
