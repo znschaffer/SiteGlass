@@ -4,6 +4,6 @@ chrome.runtime.sendMessage({ from: "popup", action: "getData" }, (response) => {
 });
 
 chrome.runtime.sendMessage({ from: "popup", action: "getBreaches" }, (response) => {
-    document.getElementById("hostName").innerHTML = response.services[0];
+    document.getElementById("hostName").innerHTML = response.name;
     console.log(response);
 });
