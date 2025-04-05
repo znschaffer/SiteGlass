@@ -113,9 +113,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             if (!tabs[0]) {
                 return;
             }
-
-            domain = new URL(tabs[0].url);
-
+            let domain = new URL(tabs[0].url);
             const fixedDomain = SplitDomain(domain);
 
             const params = new URLSearchParams({Domain: fixedDomain}); // Check if Domain parameter = domain of tab
@@ -130,7 +128,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "getCookies") {
         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
             chrome.cookies.getAll({url: tabs[0].url}).then((cookies) => {
-                sendResponse({success: true, length: cookies.size, cookies, domain: tabs[0].url});
+                let domain  = new URL(tabs[0].url)
+                sendResponse({success: true, length: cookies.size, cookies, domain: domain.hostname});
             }).catch((error) => {
                 console.error(error);
                 sendResponse({success: false, error: "Failed to retrieve cookies."});
@@ -139,83 +138,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         return true;
     }
 
-    if (request.action === "getCookiesCount") {
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            chrome.cookies.getAll({url: tabs[0].url}).then((cookies) => {
-
-                sendResponse({success: true, length: cookies.size, cookies});
-            }).catch((error) => {
-                console.error(error);
-                sendResponse({success: false, error: "Failed to retrieve cookies."});
-            });
-        });
-        return true;
-    }
-
-    if (request.action === "functionalCount") {
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            chrome.cookies.getAll({url: tabs[0].url}).then((cookies) => {
-
-                sendResponse({success: true, length: cookies.size, cookies});
-            }).catch((error) => {
-                console.error(error);
-                sendResponse({success: false, error: "Failed to retrieve cookies."});
-            });
-        });
-        return true;
-    }
-
-    if (request.action === "analyticalCount") {
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            chrome.cookies.getAll({url: tabs[0].url}).then((cookies) => {
-
-                sendResponse({success: true, length: cookies.size, cookies});
-            }).catch((error) => {
-                console.error(error);
-                sendResponse({success: false, error: "Failed to retrieve cookies."});
-            });
-        });
-        return true;
-    }
-
-    if (request.action === "marketingCount") {
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            chrome.cookies.getAll({url: tabs[0].url}).then((cookies) => {
-
-                sendResponse({success: true, length: cookies.size, cookies});
-            }).catch((error) => {
-                console.error(error);
-                sendResponse({success: false, error: "Failed to retrieve cookies."});
-            });
-        });
-        return true;
-    }
-
-    if (request.action === "miscCount") {
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            chrome.cookies.getAll({url: tabs[0].url}).then((cookies) => {
-
-                sendResponse({success: true, length: cookies.size, cookies});
-            }).catch((error) => {
-                console.error(error);
-                sendResponse({success: false, error: "Failed to retrieve cookies."});
-            });
-        });
-        return true;
-    }
-
-    if (request.action === "firstPartyCookies") {
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            chrome.cookies.getAll({url: tabs[0].url}).then((cookies) => {
-                domain = new URL(tabs[0].url).hostname
-                sendResponse({success: true, domain, cookies});
-            }).catch((error) => {
-                console.error(error);
-                sendResponse({success: false, error: "Failed to retrieve cookies."});
-            });
-        });
-        return true;
-    }
     return true;
 });
 

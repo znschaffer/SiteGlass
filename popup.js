@@ -36,7 +36,6 @@ chrome.runtime.sendMessage({from: "popup", action: "getBreaches"}, (response) =>
     document.getElementById("hostLastBreach").innerHTML = response[0] ? response[0].BreachDate : "Unknown"; // The Date of the Recent Breach
     document.getElementById("hostName").innerHTML = response[0] ? response[0].Domain : document.getElementById("siteName").innerHTML; // The Site Name
 
-    console.log(response);
 });
 
 // document.getElementById("clearCache").addEventListener("click", () => {
@@ -63,7 +62,7 @@ chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         document.getElementById("searchChoice").textContent = siteAlternatives.search;
         document.getElementById("altChoice").textContent = "consider " + siteAlternatives.alternative + " instead!";
 
-        
+
         // // Flash Icon
         // for (let i = 0; i < 4; i++) {
         //     chrome.action.setIcon({
@@ -78,9 +77,9 @@ chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
 
 
         let altLink = document.getElementById("altLink");
-        if (siteAlternatives.link == "none"){
+        if (siteAlternatives.link == "none") {
             document.getElementById("altChoice").textContent = siteAlternatives.alternative
-            
+
         }
         altLink.addEventListener("click", () => {
             // Open the alternative link in a new tab
@@ -123,9 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     chrome.runtime.sendMessage({from: "popup", action: "getData"}, (response) => {
-        //
+
         document.getElementById("tabName").innerHTML = response.services[0].rating;
-        console.log(response);
+
     });
 
     chrome.runtime.sendMessage({from: "popup", action: "getCookies"}, (response) => {
@@ -143,9 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
             cookieIcon.style.left = `${leftPercent}%`;
 
             const functional = organizeCookies(response.cookies, "Functional");
-            console.log(response);
             document.getElementById("functionalCount").textContent = functional.length;
-
 
             const analytical = organizeCookies(response.cookies, "Analysis");
             document.getElementById("analyticalCount").textContent = analytical.length;
@@ -155,16 +152,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             var firstPartyArray = []
             response.cookies.forEach(cookie => {
-
                 if (response.domain.includes(cookie.domain) || cookie.domain.includes(response.domain)) {
                     firstPartyArray.push(cookie);
                 }
             });
-            console.log(firstPartyArray);
             document.getElementById("firstPartyCookies").textContent = firstPartyArray.length;
-
             document.getElementById("getCookiesCount").textContent = response.cookies.length;
-
         } else {
             document.getElementById("getCookies").textContent = "No cookies found.";
         }
@@ -182,7 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //             console.error("No cookies received.");
     //         }
     // });
-
 
 
 });
