@@ -195,8 +195,10 @@ p {
 
 .wave-wrapper {
     position: relative;
+
     padding: 4px 4px;
     margin: 0px 0px 16px 0px;
+
     height: 40px; /* Enough height to display the wave */
     overflow: visible;
 }
@@ -211,11 +213,13 @@ p {
 /* Position the cookie icon somewhere “on” the wave */
 .cookie-icon {
     position: absolute;
+
     top: 30%;
     left: 50%;
     transform: translate(0, -50%);
     width: 36px; /* Adjust as needed */
     height: 36px;
+
 }
 
 /* Range container for "0" and "30+" text */

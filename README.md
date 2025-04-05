@@ -2,12 +2,19 @@
 
 Site Glass is a powerful privacy-focused Chrome extension that helps users assess website security, analyze cookies, and explore safer alternatives. With a user-friendly pop-up interface, CookieMonster provides vital insights into website privacy grades, third-party tracking, and breach histories.
 
+
+
 ## Features
+<img align="right" width="363" alt="image" src="https://github.com/user-attachments/assets/6649af18-7a57-48ad-ac45-6ebefa994d82" />
 
 - **Website Privacy Grade**: Instantly view a website's privacy rating based on tracking, data collection, and third-party involvement.
 - **Cookie Analysis**: Breakdown of cookies stored by a website, including third-party and advertising trackers.
 - **Software Alternatives**: Alerts the user to privacy-friendly alternatives when they attempt to download commonly used software.
 - **Breach Notification**: Check a website's history of security breaches using the [Have I Been Pwned API](https://haveibeenpwned.com/API/v3#AllBreaches).
+<br>
+<br>
+<br>
+
 
 ## Installation
 
