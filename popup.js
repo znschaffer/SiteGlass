@@ -43,22 +43,73 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-    chrome.runtime.sendMessage({ from: "popup", action: "organizeCount" }, (response) => {
+    chrome.runtime.sendMessage({ from: "popup", action: "functionalCount" }, (response) => {
         if (response && response.cookies) {
 
             const { counts } = organizeCookies(response.cookies);
 
 
             document.getElementById("functionalCount").textContent = counts.functional;
-            document.getElementById("analyticalCount").textContent = counts.analytical;
-            document.getElementById("marketingCount").textContent = counts.marketing;
-            document.getElementById("miscCount").textContent = counts.misc;
+            //document.getElementById("analyticalCount").textContent = counts.analytical;
+            //document.getElementById("marketingCount").textContent = counts.marketing;
+            //document.getElementById("miscCount").textContent = counts.misc;
 
         } else {
                 console.error("No cookies received.");
             }
         });
+
+
+    chrome.runtime.sendMessage({ from: "popup", action: "analyticalCount" }, (response) => {
+        if (response && response.cookies) {
+
+            const { counts } = organizeCookies(response.cookies);
+
+
+            //document.getElementById("functionalCount").textContent = counts.functional;
+            document.getElementById("analyticalCount").textContent = counts.analytical;
+            //document.getElementById("marketingCount").textContent = counts.marketing;
+            //document.getElementById("miscCount").textContent = counts.misc;
+
+        } else {
+                console.error("No cookies received.");
+            }
+
     });
+
+    chrome.runtime.sendMessage({ from: "popup", action: "marketingCount" }, (response) => {
+        if (response && response.cookies) {
+
+            const { counts } = organizeCookies(response.cookies);
+
+
+            //document.getElementById("functionalCount").textContent = counts.functional;
+            //document.getElementById("analyticalCount").textContent = counts.analytical;
+            document.getElementById("marketingCount").textContent = counts.marketing;
+            //document.getElementById("miscCount").textContent = counts.misc;
+
+        } else {
+                console.error("No cookies received.");
+            }
+
+    });
+    chrome.runtime.sendMessage({ from: "popup", action: "miscCount" }, (response) => {
+        if (response && response.cookies) {
+
+            const { counts } = organizeCookies(response.cookies);
+
+
+            //document.getElementById("functionalCount").textContent = counts.functional;
+            //document.getElementById("analyticalCount").textContent = counts.analytical;
+            //document.getElementById("marketingCount").textContent = counts.marketing;
+            document.getElementById("miscCount").textContent = counts.misc;
+
+        } else {
+                console.error("No cookies received.");
+            }
+    });
+
+});
 
 
 function organizeCookies(cookies) {
