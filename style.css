@@ -240,3 +240,27 @@ p {
     cursor: pointer;
     user-select: none;
 }
+
+.alt-btn{
+    background-color: #EBEBEB;
+    padding: 16px;
+    border-radius: 16px;
+    border: none;
+    margin: 8px;
+    font-weight: 700;
+}
+
+.alt-row{
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    justify-content: space-around;
+}
+
+#searchChoice {
+    font-weight: 700;
+}
+
+#altChoice {
+    font-weight: 700;
+}
