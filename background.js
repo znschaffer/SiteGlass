@@ -78,6 +78,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     else if (request.action === "getBreaches") {
         chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+           if(!tabs[0]) {
+               return;
+           }
+
             domain = new URL(tabs[0].url);
 
             const fixedDomain = SplitDomain(domain);
