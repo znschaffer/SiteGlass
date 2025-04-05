@@ -26,6 +26,14 @@ body {
     flex: 1;
 }
 
+.box-large {
+    min-width: 180px;
+    border-radius: 8px;
+    padding: 4px; /* Padding inside the box */
+    background: #EBEBEB;
+    flex: 1;
+}
+
 .box {
     border-radius: 8px;
     padding: 4px; /* Padding inside the box */
@@ -43,6 +51,25 @@ body {
 }
 
 .box p {
+    margin: 0; /* Remove default margin */
+    padding: 16px 4px 4px 0px; /* Padding for spacing */
+    font-size: 28px; /* Font size for the paragraph */
+    font-weight: 400; /* Normal weight for the text */
+    text-align: center; /* Align text to the left */
+    color: #555; /* Text color */
+    word-break: break-word; /* Ensure long words break correctly */
+}
+
+.box-large h2 {
+    margin: 0; /* Remove default margin */
+    padding: 4px 0; /* Padding for spacing */
+    font-size: 18px; /* Font size for the heading */
+    font-weight: 300;
+    text-align: left; /* Center align the heading */
+    color: #333; /* Text color */
+}
+
+.box-large p {
     margin: 0; /* Remove default margin */
     padding: 16px 4px 4px 0px; /* Padding for spacing */
     font-size: 28px; /* Font size for the paragraph */
