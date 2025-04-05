@@ -28,10 +28,26 @@ const altSiteCache = {
 function getSiteAlternatives(searchSite){
     let site = searchSite.toLowerCase()
     if(site in altSiteCache){
+        // Flash Icon
+        for (let i = 0; i < 4; i++) {
+
+            chrome.browser.seticon("icons/Inactive Favicon.png");
+            wait(1000);
+
+            chrome.browser.seticon("icons/Active_Favicon.png");
+            wait(1000);
+        }
+
         return (altSiteCache[site]);
     } else {
         let noResult = altSiteCache["none"]
         noResult.search = searchSite
         return noResult
     }
+}
+
+// Helper Wait Function
+
+function wait() {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
