@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="popup.js"></script>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
+    <title>Popup</title>
+    <script type="module" src="popup.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+          rel="stylesheet">
 </head>
 <body>
-<h1>Cookie Monster</h1>
-<p>This site has a rating of: <span id="tabName"></span></p>
-<p>This site has <span id="hostBreaches"></span> breaches associated with it.</p>
-<p><span id="breachStats"></span></p>
+<div class="tabGroup">
+
+    <div class="tabButton tabButton--active" data-tab="privacy"><p>Privacy</p></div>
+    <div class="tabButton" data-tab="alternatives"><p>Alternatives</p></div>
+    <div class="tabButton" data-tab="breaches"><p>Breaches</p></div>
+
+</div>
+<div class="container">
+
+    <div class="tab" id="privacy">
+        <h2 id="siteName">Loading...</h2>
+        <p>Rating: <span id="rating">N/A</span></p>
+    </div>
+    <div class="tab" id="alternatives">
+
+    </div>
+    <div class="tab" id="breaches">
+        <div id="rectangle" style="width:335px; height:95px; background-color: #EBEBEB; position: absolute; top: 56px; left: 16px;"> 
+            <div class="text-container-top">
+                <h4 style="margin-bottom: -20px; margin-top: 10px; text-align: center;">Total Breaches:</h4>
+                <p><span id="hostBreaches"></span></p>
+            </div>
+        </div>
+        <div id="rectangle" style="width:176px; height:80px; background-color: #EBEBEB; position: absolute; top: 167px; left: 16px"> 
+            <div class="text-container-sideL">
+                <h4 style="margin-bottom: -20px; margin-top: 10px; text-align: center;">People Affected:</h4>
+                <p><span id="breachStats"></span></p>
+            </div>
+        </div>
+
+        <div id="rectangle" style="width:176px; height:80px; background-color: #EBEBEB; position: absolute; top: 263px; left: 16px"> 
+            <div class="text-container-sideL">
+                <h4 style="margin-bottom: -20px; margin-top: 10px; text-align: center;">Last Breached:</h4>
+                <p><span id="hostLastBreach"></span></p>
+            </div>
+        </div>
+
+        <div id="rectangle" style="width:146px; height:80px; background-color: #EBEBEB; position: absolute; top: 167px; right: 16px"> 
+            <div class="text-container-sideR">
+                <h4 style="margin-bottom: -20px; margin-top: 10px; text-align: center;">Website:</h4>
+                <p><span id="hostName"></span></p>
+            </div>
+        </div>
+    </div>
+    <button id="clearCache" style="position: absolute; top: 365px; left: 16px">Clear Cache</button>
+</div>
+
 </body>
 </html>
