@@ -9,6 +9,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             });
 
         })
+       return true;
     }
-    return true;
+
+    if (request.action === "getCookies") {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            chrome.cookies.getAll({ url: tabs[0].url }).then((cookies) => {
+                sendResponse({ success: true, cookies });
+            }).catch((error) => {
+                console.error(error);
+                sendResponse({ success: false, error: "Failed to retrieve cookies." });
+            });
+        });
+        return true;
+    }
 });
