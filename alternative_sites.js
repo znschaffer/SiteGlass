@@ -4,7 +4,9 @@ const altSiteCache = {
 };
 
 function getSiteAlternatives(searchSite){
-    let site = searchSite.toLowerCase()
+    let site = searchSite.split(".")
+    site = site[0]
+    site = site.toLowerCase()
     if(site in altSiteCache){
         return (altSiteCache[site]);
     }
