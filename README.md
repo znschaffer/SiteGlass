@@ -1,6 +1,6 @@
-# CookieMonster - Chrome Extension
+# Site Glass - Chrome Extension
 
-CookieMonster is a powerful privacy-focused Chrome extension that helps users assess website security, analyze cookies, and explore safer alternatives. With a user-friendly pop-up interface, CookieMonster provides vital insights into website privacy grades, third-party tracking, and breach histories.
+Site Glass is a powerful privacy-focused Chrome extension that helps users assess website security, analyze cookies, and explore safer alternatives. With a user-friendly pop-up interface, CookieMonster provides vital insights into website privacy grades, third-party tracking, and breach histories.
 
 ## Features
 
@@ -11,14 +11,14 @@ CookieMonster is a powerful privacy-focused Chrome extension that helps users as
 
 ## Installation
 
-1. Download the latest version of CookieMonster and unzip it.
+1. Download the latest version of Site Glass and unzip it.
 2. Open Chrome and navigate to `chrome://extensions/`.
 3. Enable "Developer mode" in the top-right corner.
-4. Click "Load unpacked" and select the unzipped CookieMonster extension folder.
+4. Click "Load unpacked" and select the unzipped Site Glass extension folder.
 
 ## Usage
 
-1. Click the CookieMonster icon in your Chrome extensions toolbar.
+1. Click the Site Glass icon in your Chrome extensions toolbar.
 3. View website privacy ratings, cookie details, and alternative recommendations.
 4. Check the website's history of security breaches and their severities.
 
@@ -28,7 +28,7 @@ CookieMonster utilizes the [Have I Been Pwned API](https://haveibeenpwned.com/ap
 
 ## Privacy & Security
 
-CookieMonster does not store or share any user data. All processing happens locally in your browser, ensuring your browsing activity remains private.
+Site Glass does not store or share any user data. All processing happens locally in your browser, ensuring your browsing activity remains private.
 
 ## Contributing
 
@@ -40,5 +40,5 @@ This project is licensed under the MIT License.
 
 ---
 
-Start taking control of your privacy today with CookieMonster! 🕵️‍♂️🍪
+Start taking control of your privacy today with Site Glass! 🕵️‍♂️🍪
 
