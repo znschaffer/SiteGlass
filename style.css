@@ -33,7 +33,7 @@ p {
     padding: 8px; /* Padding inside the box */
     background: #EBEBEB;
     flex: 1 0 0;
-    margin:auto;
+    margin: auto;
 }
 
 #breaches {
@@ -51,21 +51,26 @@ p {
 .summaryRow {
     display: flex;
     gap: 16px;
-    margin-top:auto;
+    margin-top: auto;
     margin-bottom: auto;
 }
 
 .summaryRow summary:hover {
     cursor: pointer;
+
 }
+
 .summaryRow ul {
     font-size:16px;
-    padding: 0px 18px;
+    padding: 0px 28px;
+
     font-weight: 300;
-    list-style: circle;
+    list-style: square;
 }
+
 .summaryRow ul li {
     padding: 8px 0px;
+    line-height: 18px;
 }
 
 .row > div {
@@ -104,7 +109,6 @@ p {
 }
 
 .box p {
-
     margin: 0; /* Remove default margin */
     padding: 4px 4px 12px 4px; /* Padding for spacing */
     font-size: 28px; /* Font size for the paragraph */
@@ -135,7 +139,7 @@ p {
 }
 
 .container {
-   flex: 1;
+    flex: 1;
     background: #FFFFFF;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -178,21 +182,55 @@ p {
     cursor: pointer;
 }
 
+#altLink:hover {
+    background: lightgrey;
+    cursor: pointer;
+}
+
 .tabButton--active {
     background: #FFFFFF;
 }
 
+.hide {
+    display: none;
+}
 .tab {
     background: #FFFFFF;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
+#cookieStats {
+    padding-top: 16px;
+}
+#cookieStats h3 {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Josefin Sans, serif;
+    text-align: left;
+    padding: 0px;
+    margin: 0;
+}
+#cookieStats p {
+    font-size: 14px;
+    font-family: Josefin Sans, serif;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+}
+
+#cookieBox:hover {
+    cursor: pointer;
+    background:lightgrey;
+}
 
 
 .wave-wrapper {
     position: relative;
-    margin: 8px 0;
+
+    padding: 4px 4px;
+    margin: 0px 0px 16px 0px;
+
     height: 40px; /* Enough height to display the wave */
     overflow: visible;
 }
@@ -207,11 +245,13 @@ p {
 /* Position the cookie icon somewhere “on” the wave */
 .cookie-icon {
     position: absolute;
-    top: 14%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    width: 28px; /* Adjust as needed */
-    height: 28px;
+
+    top: 30%;
+    left: 50%;
+    transform: translate(0, -50%);
+    width: 36px; /* Adjust as needed */
+    height: 36px;
+
 }
 
 /* Range container for "0" and "30+" text */
@@ -231,4 +271,28 @@ p {
     font-size: 1rem;
     cursor: pointer;
     user-select: none;
+}
+
+.alt-btn {
+    background-color: #EBEBEB;
+    padding: 16px;
+    border-radius: 16px;
+    border: none;
+    margin: 8px;
+    font-weight: 700;
+}
+
+.alt-row {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    justify-content: space-around;
+}
+
+#searchChoice {
+    font-weight: 700;
+}
+
+#altChoice {
+    font-weight: 700;
 }
