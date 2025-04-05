@@ -46,13 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
     chrome.runtime.sendMessage({ from: "popup", action: "functionalCount" }, (response) => {
         if (response && response.cookies) {
 
-            const { counts } = organizeCookies(response.cookies);
-
-
-            document.getElementById("functionalCount").textContent = counts.functional;
-            //document.getElementById("analyticalCount").textContent = counts.analytical;
-            //document.getElementById("marketingCount").textContent = counts.marketing;
-            //document.getElementById("miscCount").textContent = counts.misc;
+            const result = organizeCookies(response.cookies, "Functional");
+            document.getElementById("functionalCount").textContent = result.length;
 
         } else {
                 console.error("No cookies received.");
@@ -63,13 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
     chrome.runtime.sendMessage({ from: "popup", action: "analyticalCount" }, (response) => {
         if (response && response.cookies) {
 
-            const { counts } = organizeCookies(response.cookies);
-
-
-            //document.getElementById("functionalCount").textContent = counts.functional;
-            document.getElementById("analyticalCount").textContent = counts.analytical;
-            //document.getElementById("marketingCount").textContent = counts.marketing;
-            //document.getElementById("miscCount").textContent = counts.misc;
+            result = organizeCookies(response.cookies, "Analysis");
+            document.getElementById("analyticalCount").textContent = result.length;
 
         } else {
                 console.error("No cookies received.");
@@ -80,13 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
     chrome.runtime.sendMessage({ from: "popup", action: "marketingCount" }, (response) => {
         if (response && response.cookies) {
 
-            const { counts } = organizeCookies(response.cookies);
+            result = organizeCookies(response.cookies, "Marketing");
+            document.getElementById("marketingCount").textContent = result.length;
 
-
-            //document.getElementById("functionalCount").textContent = counts.functional;
-            //document.getElementById("analyticalCount").textContent = counts.analytical;
-            document.getElementById("marketingCount").textContent = counts.marketing;
-            //document.getElementById("miscCount").textContent = counts.misc;
 
         } else {
                 console.error("No cookies received.");
@@ -96,13 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     chrome.runtime.sendMessage({ from: "popup", action: "miscCount" }, (response) => {
         if (response && response.cookies) {
 
-            const { counts } = organizeCookies(response.cookies);
-
-
-            //document.getElementById("functionalCount").textContent = counts.functional;
-            //document.getElementById("analyticalCount").textContent = counts.analytical;
-            //document.getElementById("marketingCount").textContent = counts.marketing;
-            document.getElementById("miscCount").textContent = counts.misc;
+            document.getElementById("miscCount").textContent = 0; //temp value - misc should be calculated based of others results
 
         } else {
                 console.error("No cookies received.");
@@ -115,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             firstPartyArray = []
             response.cookies.forEach(cookie => {
 
-                if(cookie.domain.includes(response.domain))
+                if(response.domain.includes(cookie.domain) || cookie.domain.includes(response.domain))
                 {
                     firstPartyArray.push(cookie);
                 }
@@ -131,34 +111,32 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-function organizeCookies(cookies) {
-    const categories = {
-        functional: [],
-        analytical: [],
-        marketing: [],
-        misc: []
-    };
+function organizeCookies(cookies, category) {
+    const bucket = []
 
     cookies.forEach(cookie => {
-        if (cookie.name.includes("session") || cookie.name.includes("auth") || cookie.name.includes("language")) {
-            categories.functional.push(cookie);
-        } else if (cookie.name.includes("analytics") || cookie.name.includes("track")) {
-            categories.analytical.push(cookie);
-        } else if (cookie.name.includes("ad") || cookie.name.includes("campaign") || cookie.name.includes("sid")) {
-            categories.marketing.push(cookie);
-        } else {
-            categories.misc.push(cookie);
+
+    switch (category) {
+    case "Functional":
+        if (cookie.name.includes("session") || cookie.name.includes("auth") || cookie.name.includes("language") || cookie.name.includes("tz")) {
+            bucket.push(cookie);
         }
+        break;
+    case "Marketing":
+        if (cookie.name.includes("ad") || cookie.name.includes("campaign") || cookie.name.includes("sid")) {
+            bucket.push(cookie);
+        }
+        break;
+    case "Analysis":
+
+        if (cookie.name.includes("analytics") || cookie.name.includes("track")) {
+            bucket.push(cookie);
+        }
+        break;
+    default:
+    }
+
     });
 
-
-    const counts = {
-        functional: categories.functional.length,
-        analytical: categories.analytical.length,
-        marketing: categories.marketing.length,
-        misc: categories.misc.length
-    };
-
-    return { categories, counts };
+    return bucket;
 }
-

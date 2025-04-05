@@ -15,7 +15,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "getCookies") {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             chrome.cookies.getAll({ url: tabs[0].url }).then((cookies) => {
-                //organizeCookies(cookies);
 
                 sendResponse({ success: true,length: cookies.size, cookies });
             }).catch((error) => {
@@ -29,7 +28,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.action === "getCookiesCount") {
             chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                 chrome.cookies.getAll({ url: tabs[0].url }).then((cookies) => {
-                    //organizeCookies(cookies);
 
                     sendResponse({ success: true,length: cookies.size, cookies});
                 }).catch((error) => {
@@ -43,7 +41,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.action === "functionalCount") {
             chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                 chrome.cookies.getAll({ url: tabs[0].url }).then((cookies) => {
-                    //organizeCookies(cookies);
 
                     sendResponse({ success: true,length: cookies.size, cookies});
                 }).catch((error) => {
@@ -57,7 +54,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.action === "analyticalCount") {
             chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                 chrome.cookies.getAll({ url: tabs[0].url }).then((cookies) => {
-                    //organizeCookies(cookies);
 
                     sendResponse({ success: true,length: cookies.size, cookies});
                 }).catch((error) => {
@@ -71,7 +67,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.action === "marketingCount") {
             chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                 chrome.cookies.getAll({ url: tabs[0].url }).then((cookies) => {
-                    //organizeCookies(cookies);
 
                     sendResponse({ success: true,length: cookies.size, cookies});
                 }).catch((error) => {
@@ -85,7 +80,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (request.action === "miscCount") {
             chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                 chrome.cookies.getAll({ url: tabs[0].url }).then((cookies) => {
-                    //organizeCookies(cookies);
 
                     sendResponse({ success: true,length: cookies.size, cookies});
                 }).catch((error) => {
