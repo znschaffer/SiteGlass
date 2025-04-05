@@ -1,4 +1,9 @@
-chrome.runtime.sendMessage({from: "popup", action: "getSiteRating"}, ({service, concerns}) => {
+chrome.runtime.sendMessage({from: "popup", action: "getSiteRating"}, (response) => {
+    if (!response){
+        return;
+    }
+    let service = response.service;
+    let concerns = response.concerns;
     let ratingElement = document.getElementById("rating")
     if (ratingElement) ratingElement.textContent = service.rating
 
@@ -20,8 +25,8 @@ chrome.runtime.sendMessage({ from: "popup", action: "getBreaches" }, (response) 
             totalPwnCount += response[i].PwnCount;
         }
         document.getElementById("breachStats").innerHTML = totalPwnCount; // The Total Affected People
-        document.getElementById("hostLastBreach").innerHTML = response[0].BreachDate; // The Date of the Recent Breach
-        document.getElementById("hostName").innerHTML = response[0].Domain; // The Site Name
+        document.getElementById("hostLastBreach").innerHTML = response[0] ? response[0].BreachDate : "Unknown"; // The Date of the Recent Breach
+        document.getElementById("hostName").innerHTML = response[0] ? response[0].Domain : ""; // The Site Name
         console.log(response);
 });
 
