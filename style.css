@@ -57,15 +57,18 @@ p {
 
 .summaryRow summary:hover {
     cursor: pointer;
+
 }
 .summaryRow ul {
     font-size:16px;
-    padding: 0px 18px;
+    padding: 0px 28px;
     font-weight: 300;
-    list-style: circle;
+    list-style: square;
 }
+
 .summaryRow ul li {
     padding: 8px 0px;
+    line-height: 18px;
 }
 
 .row > div {
@@ -192,7 +195,10 @@ p {
 
 .wave-wrapper {
     position: relative;
-    margin: 8px 0;
+
+    padding: 4px 4px;
+    margin: 0px 0px 16px 0px;
+
     height: 40px; /* Enough height to display the wave */
     overflow: visible;
 }
@@ -207,11 +213,13 @@ p {
 /* Position the cookie icon somewhere “on” the wave */
 .cookie-icon {
     position: absolute;
-    top: 14%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    width: 28px; /* Adjust as needed */
-    height: 28px;
+
+    top: 30%;
+    left: 50%;
+    transform: translate(0, -50%);
+    width: 36px; /* Adjust as needed */
+    height: 36px;
+
 }
 
 /* Range container for "0" and "30+" text */
