@@ -1,23 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="popup.js"></script>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
+    <title>Popup</title>
+    <script type="module" src="popup.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+          rel="stylesheet">
 </head>
 <body>
-<h1>Cookie Monster</h1>
 
-<p>This site has a rating of: <span id="tabName"></span></p>
+<div class="tabGroup">
 
-<p>This site has cookies: <span id="getCookies"></span></p>
-<p>This site has this many cookies: <span id="getCookiesCount"></span></p>
-<ul>
-    <li>1st Party Cookies: <span id="firstPartyCookies"></span></li>
-    <li>Functional Cookies: <span id="functionalCount"></span></li>
-    <li>Analytical Cookies: <span id="analyticalCount"></span></li>
-    <li>Marketing Cookies: <span id="marketingCount"></span></li>
-    <li>Miscellaneous Cookies: <span id="miscCount"></span></li>
-</ul>
+    <div class="tabButton tabButton--active" data-tab="privacy"><p>Privacy</p></div>
+    <div class="tabButton" data-tab="alternatives"><p>Alternatives</p></div>
+    <div class="tabButton" data-tab="breaches"><p>Breaches</p></div>
+
+</div>
+<div class="container">
+
+    <div class="tab" id="privacy">
+        <h2 id="siteName">Loading...</h2>
+        <p>Rating: <span id="rating">N/A</span></p>
+      <p>Concerns:</p>
+      <ul id="concerns"></ul>
+    </div>
+    <div class="tab" id="alternatives">
+
+    </div>
+    <div class="tab" id="breaches">
+
+        <div class="box">
+            <h2>Website:</h2>
+            <p><span id="hostName">Loading...</span></p>
+        </div>
+        <div class="row">
+            <div class="box-large">
+                <h2>People Affected:</h2>
+                <p><span id="breachStats">0</span></p>
+            </div>
+
+            <div class="box">
+                <h2>Total Breaches:</h2>
+                <p><span id="hostBreaches">0</span></p>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="box-large">
+                <h2>Last Breached:</h2>
+                <p><span id="hostLastBreach">N/A</span></p>
+
+            </div>
+            <div class="box">
+                <h2>Learn More</h2>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
 
 </body>
 </html>

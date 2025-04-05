@@ -1,0 +1,136 @@
+body {
+    background: #981E32;
+    width: 350px;
+    height: 400px;
+    margin: 8px;
+    font-size: 18px;
+    font-family: Josefin Sans, serif;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+}
+
+#breaches {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.row {
+    display: flex;
+    gap: 16px;
+    flex: 1;
+}
+
+.row > div {
+    flex: 1;
+}
+
+.box-large {
+    min-width: 180px;
+    border-radius: 8px;
+    padding: 4px; /* Padding inside the box */
+    background: #EBEBEB;
+    flex: 1;
+}
+
+.box {
+    border-radius: 8px;
+    padding: 4px; /* Padding inside the box */
+    background: #EBEBEB;
+    flex: 1;
+}
+
+.box h2 {
+    margin: 0; /* Remove default margin */
+    padding: 4px 0; /* Padding for spacing */
+    font-size: 18px; /* Font size for the heading */
+    font-weight: 300;
+    text-align: left; /* Center align the heading */
+    color: #333; /* Text color */
+}
+
+.box p {
+    margin: 0; /* Remove default margin */
+    padding: 16px 4px 4px 0px; /* Padding for spacing */
+    font-size: 28px; /* Font size for the paragraph */
+    font-weight: 400; /* Normal weight for the text */
+    text-align: center; /* Align text to the left */
+    color: #555; /* Text color */
+    word-break: break-word; /* Ensure long words break correctly */
+}
+
+.box-large h2 {
+    margin: 0; /* Remove default margin */
+    padding: 4px 0; /* Padding for spacing */
+    font-size: 18px; /* Font size for the heading */
+    font-weight: 300;
+    text-align: left; /* Center align the heading */
+    color: #333; /* Text color */
+}
+
+.box-large p {
+    margin: 0; /* Remove default margin */
+    padding: 16px 4px 4px 0px; /* Padding for spacing */
+    font-size: 28px; /* Font size for the paragraph */
+    font-weight: 400; /* Normal weight for the text */
+    text-align: center; /* Align text to the left */
+    color: #555; /* Text color */
+    word-break: break-word; /* Ensure long words break correctly */
+}
+
+.container {
+    flex-grow: 1;
+    background: #FFFFFF;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 8px;
+}
+
+.tabGroup {
+    background: #D9D9D9;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border: 0 solid darkgrey;
+    border-bottom: 0;
+    display: flex;
+    gap: 4px;
+}
+
+.tabButton {
+    font-size: 18px;
+    background: #F1F3F480;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.tabButton p {
+    margin: 8px;
+}
+
+.tabButton--active:hover {
+    background: #FFFFFF !important;
+}
+
+.tabButton:hover {
+    background: lightgrey;
+    cursor: pointer;
+}
+
+.tabButton--active {
+    background: #FFFFFF;
+}
+
+.tab {
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
