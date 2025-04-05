@@ -107,6 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (response && response.cookies) {
                 const cookiesList = response.cookies.map(cookie => `${cookie.name}: ${cookie.value}`);
+                const clampedCount = Math.min(response.cookies.length, 30);
+                const leftPercent = (clampedCount / 30) * 100;
+                const cookieIcon = document.getElementById('cookieIcon');
+                cookieIcon.style.left = `${leftPercent}%`;
+
+
                 document.getElementById("getCookiesCount").textContent = response.cookies.length;
 
             } else {
@@ -116,70 +122,70 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-    chrome.runtime.sendMessage({ from: "popup", action: "functionalCount" }, (response) => {
-        if (response && response.cookies) {
-
-            const result = organizeCookies(response.cookies, "Functional");
-            document.getElementById("functionalCount").textContent = result.length;
-
-        } else {
-                console.error("No cookies received.");
-            }
-        });
-
-
-    chrome.runtime.sendMessage({ from: "popup", action: "analyticalCount" }, (response) => {
-        if (response && response.cookies) {
-
-            result = organizeCookies(response.cookies, "Analysis");
-            document.getElementById("analyticalCount").textContent = result.length;
-
-        } else {
-                console.error("No cookies received.");
-            }
-
-    });
-
-    chrome.runtime.sendMessage({ from: "popup", action: "marketingCount" }, (response) => {
-        if (response && response.cookies) {
-
-            result = organizeCookies(response.cookies, "Marketing");
-            document.getElementById("marketingCount").textContent = result.length;
-
-
-        } else {
-                console.error("No cookies received.");
-            }
-
-    });
-    chrome.runtime.sendMessage({ from: "popup", action: "miscCount" }, (response) => {
-        if (response && response.cookies) {
-
-            document.getElementById("miscCount").textContent = 0; //temp value - misc should be calculated based of others results
-
-        } else {
-                console.error("No cookies received.");
-            }
-    });
-
-    chrome.runtime.sendMessage({ from: "popup", action: "firstPartyCookies" }, (response) => {
-
-        if (response && response.cookies && response.domain) {
-            firstPartyArray = []
-            response.cookies.forEach(cookie => {
-
-                if(response.domain.includes(cookie.domain) || cookie.domain.includes(response.domain))
-                {
-                    firstPartyArray.push(cookie);
-                }
-            });
-            document.getElementById("firstPartyCookies").textContent = firstPartyArray.length;
-
-
-        } else {
-                console.error("No cookies received.");
-            }
-    });
+    // chrome.runtime.sendMessage({ from: "popup", action: "functionalCount" }, (response) => {
+    //     if (response && response.cookies) {
+    //
+    //         const result = organizeCookies(response.cookies, "Functional");
+    //         document.getElementById("functionalCount").textContent = result.length;
+    //
+    //     } else {
+    //             console.error("No cookies received.");
+    //         }
+    //     });
+    //
+    //
+    // chrome.runtime.sendMessage({ from: "popup", action: "analyticalCount" }, (response) => {
+    //     if (response && response.cookies) {
+    //
+    //         result = organizeCookies(response.cookies, "Analysis");
+    //         document.getElementById("analyticalCount").textContent = result.length;
+    //
+    //     } else {
+    //             console.error("No cookies received.");
+    //         }
+    //
+    // });
+    //
+    // chrome.runtime.sendMessage({ from: "popup", action: "marketingCount" }, (response) => {
+    //     if (response && response.cookies) {
+    //
+    //         result = organizeCookies(response.cookies, "Marketing");
+    //         document.getElementById("marketingCount").textContent = result.length;
+    //
+    //
+    //     } else {
+    //             console.error("No cookies received.");
+    //         }
+    //
+    // });
+    // chrome.runtime.sendMessage({ from: "popup", action: "miscCount" }, (response) => {
+    //     if (response && response.cookies) {
+    //
+    //         document.getElementById("miscCount").textContent = 0; //temp value - misc should be calculated based of others results
+    //
+    //     } else {
+    //             console.error("No cookies received.");
+    //         }
+    // });
+    //
+    // chrome.runtime.sendMessage({ from: "popup", action: "firstPartyCookies" }, (response) => {
+    //
+    //     if (response && response.cookies && response.domain) {
+    //         firstPartyArray = []
+    //         response.cookies.forEach(cookie => {
+    //
+    //             if(response.domain.includes(cookie.domain) || cookie.domain.includes(response.domain))
+    //             {
+    //                 firstPartyArray.push(cookie);
+    //             }
+    //         });
+    //         document.getElementById("firstPartyCookies").textContent = firstPartyArray.length;
+    //
+    //
+    //     } else {
+    //             console.error("No cookies received.");
+    //         }
+    // });
 
 });
 
