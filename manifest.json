@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Cookie Monster",
+  "name": "Site Glass",
   "version": "1.0",
-  "description": "Eat up cookies and Spit out the truth.",
+  "description": "See The Truth.",
   "action": {
     "default_popup": "extension.html"
   },
