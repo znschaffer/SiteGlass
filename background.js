@@ -65,6 +65,8 @@ async function getPrivacyConcerns(id) {
         console.error("Failed to fetch concerns:", error);
         return null;
     }
+
+
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -73,4 +75,5 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     } else if (request.action === "clearCache") {
         return clearCache(request, sendResponse);
     }
+
 });
