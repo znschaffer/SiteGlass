@@ -1,3 +1,5 @@
+import {getSiteAlternatives} from './alternative_sites.js';
+
 chrome.runtime.sendMessage({from: "popup", action: "getSiteRating"}, (response) => {
     if (!response) {
         return;
@@ -33,6 +35,7 @@ chrome.runtime.sendMessage({from: "popup", action: "getBreaches"}, (response) =>
     document.getElementById("breachStats").innerHTML = totalPwnCount; // The Total Affected People
     document.getElementById("hostLastBreach").innerHTML = response[0] ? response[0].BreachDate : "Unknown"; // The Date of the Recent Breach
     document.getElementById("hostName").innerHTML = response[0] ? response[0].Domain : document.getElementById("siteName").innerHTML; // The Site Name
+
     console.log(response);
 });
 
@@ -49,6 +52,33 @@ chrome.runtime.sendMessage({from: "popup", action: "getBreaches"}, (response) =>
 //         document.getElementById("clearCache").disabled = "none";
 //     })
 // })
+
+
+chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+    if (tabs[0] && tabs[0].url) {
+        let currentUrl = new URL(tabs[0].url);
+        var siteAlternatives = getSiteAlternatives(currentUrl.hostname);
+
+// Populate the alternative site info
+        document.getElementById("searchChoice").textContent = siteAlternatives.search;
+        document.getElementById("altChoice").textContent = "consider " + siteAlternatives.alternative + " instead!";
+        let altLink = document.getElementById("altLink");
+        if (siteAlternatives.link == "none"){
+            document.getElementById("altChoice").textContent = siteAlternatives.alternative
+        }
+        altLink.addEventListener("click", () => {
+            // Open the alternative link in a new tab
+            if (siteAlternatives.link && siteAlternatives.link !== "none") {
+                chrome.tabs.create({url: siteAlternatives.link});
+            } else {
+                alert("No alternative link available.");
+            }
+        })
+
+    }
+
+})
+
 
 document.querySelectorAll('.tabButton').forEach(button => {
     button.addEventListener('click', () => {
@@ -72,6 +102,7 @@ document.querySelector('.tabButton--active').click();
 
 
 document.addEventListener("DOMContentLoaded", () => {
+
     document.getElementById("cookieBox").addEventListener('click', function () {
         document.getElementById("cookieStats").classList.toggle("hide")
     })
@@ -100,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(response);
             document.getElementById("functionalCount").textContent = functional.length;
 
+
             const analytical = organizeCookies(response.cookies, "Analysis");
             document.getElementById("analyticalCount").textContent = analytical.length;
 
@@ -118,10 +150,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             document.getElementById("getCookiesCount").textContent = response.cookies.length;
 
-
         } else {
             document.getElementById("getCookies").textContent = "No cookies found.";
         }
+
 
     });
 

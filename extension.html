@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Young+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Young+Serif&display=swap"
+          rel="stylesheet">
 </head>
 <body>
 
@@ -30,7 +31,8 @@
         </div>
 
         <div class="row">
-            <div class="box" style="max-width: 74px; flex-direction: row; align-items: center; justify-content: center;">
+            <div class="box"
+                 style="max-width: 74px; flex-direction: row; align-items: center; justify-content: center;">
                 <h2 style="text-orientation: mixed; ; writing-mode: sideways-lr">Grade:</h2>
                 <p id="rating" style="padding-top: 16px; font-size: 48px"></p>
             </div>
@@ -41,9 +43,9 @@
                     <svg class="wave" viewBox="0 0 500 50" preserveAspectRatio="none">
                         <defs>
                             <linearGradient id="waveGradient" x1="0%" y1="50%" x2="100%" y2="50%">
-                                <stop offset="0%" stop-color="green" />
-                                <stop offset="50%" stop-color="orange" />
-                                <stop offset="100%" stop-color="red" />
+                                <stop offset="0%" stop-color="green"/>
+                                <stop offset="50%" stop-color="orange"/>
+                                <stop offset="100%" stop-color="red"/>
                             </linearGradient>
                         </defs>
                         <!-- A repeating wave path. Feel free to adjust! -->
@@ -55,10 +57,11 @@
                C440,0  460,50 500,25"
                               fill="none"
                               stroke="url(#waveGradient)"
-                              stroke-width="12" />
+                              stroke-width="12"/>
                     </svg>
 
                     <!-- Cookie icon; replace src with your own cookie image or an emoji -->
+
 
                     <span class="cookie-icon"  id="cookieIcon" style="font-size:40px">🍪</span>
 
@@ -66,7 +69,6 @@
                         <span>0</span>
                         <span>30+</span>
                     </div>
-
 
 
                 </div>
@@ -86,7 +88,7 @@
         </div>
         <div class="summaryRow">
             <div class="summaryBox">
-                <details >
+                <details>
                     <summary>Possible Concerns</summary>
                     <ul id="concerns"></ul>
                 </details>
@@ -95,6 +97,14 @@
 
     </div>
     <div class="tab" id="alternatives">
+        <div class="box">
+            <h2>You're about to use <span id="searchChoice">SEARCH TERM</span>, <span id="altChoice">ALT CHOICE</span></h2>
+        </div>
+
+        <div class="alt-row">
+            <button class="alt-btn" id="alt">Learn why</button>
+            <button class="alt-btn" id="altLink">Take me there</button>
+        </div>
 
     </div>
     <div class="tab" id="breaches">
