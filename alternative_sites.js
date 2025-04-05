@@ -42,7 +42,7 @@ export function getSiteAlternatives(searchSite) {
         site = site.slice(4)
     }
 
-    if (site in altSiteCache) {
+    if(site in altSiteCache){
         return (altSiteCache[site]);
     } else {
         let noResult = altSiteCache["none"]

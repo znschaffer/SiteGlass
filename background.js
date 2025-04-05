@@ -1,7 +1,41 @@
+// Import the getSiteAlternatives function
+import {getSiteAlternatives} from './alternative_sites.js';
+
 function clearCache(request, sendResponse) {
     chrome.storage.local.clear().then(_ => sendResponse({message: "Cache cleared."}));
     return true;
 }
+
+function flashBadge(message, times, interval) {
+    flash();
+
+    function flash() {
+        setTimeout(function () {
+            if (times == 0) {
+                chrome.action.setIcon({path: "./icons/Active_Favicon.png"}); // Reset icon to active state
+                return;
+            }
+            if (times % 2 == 0) {
+                chrome.action.setIcon({path: "./icons/Active_Favicon.png"}); // Reset icon to active state
+
+
+            } else {
+                chrome.action.setIcon({path: "./icons/inactive_icon.png"}); // Reset icon to active state
+
+            }
+            times--;
+            flash();
+        }, interval);
+    }
+}
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+
+    let domain = new URL(tab.url).hostname;
+    if (getSiteAlternatives(domain).link !== "none") {
+        flashBadge(tab.url, 15, 200); // Flash the badge 3 times with 1 second interval
+    }
+})
 
 function getSiteRating(request, sendResponse) {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
