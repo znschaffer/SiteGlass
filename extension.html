@@ -4,10 +4,34 @@
     <meta charset="utf-8"/>
     <title>Popup</title>
     <script type="module" src="popup.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+          rel="stylesheet">
 </head>
 <body>
-<button id="clearCache">Clear Cache</button>
-<h2 id="siteName">Loading...</h2>
-<p>Rating: <span id="rating">N/A</span></p>
+<div class="tabGroup">
+
+    <div class="tabButton tabButton--active" data-tab="privacy"><p>Privacy</p></div>
+    <div class="tabButton" data-tab="alternatives"><p>Alternatives</p></div>
+    <div class="tabButton" data-tab="breaches"><p>Breaches</p></div>
+
+</div>
+<div class="container">
+
+    <div class="tab" id="privacy">
+        <h2 id="siteName">Loading...</h2>
+        <p>Rating: <span id="rating">N/A</span></p>
+    </div>
+    <div class="tab" id="alternatives">
+
+    </div>
+    <div class="tab" id="breaches">
+
+    </div>
+    <button id="clearCache">Clear Cache</button>
+</div>
+
 </body>
 </html>
