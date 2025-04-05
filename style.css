@@ -21,7 +21,7 @@ p {
 }
 
 .ratingBox {
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 4px; /* Padding inside the box */
     background: #EBEBEB;
     flex: 1 0 0;
@@ -29,7 +29,7 @@ p {
 
 
 .summaryBox {
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 8px; /* Padding inside the box */
     background: #EBEBEB;
     flex: 1 0 0;
@@ -64,12 +64,12 @@ p {
     font-size:16px;
     padding: 0px 28px;
 
-    font-weight: 300;
+    font-weight: 400;
     list-style: square;
 }
 
 .summaryRow ul li {
-    padding: 8px 0px;
+    padding: 4px 0px;
     line-height: 18px;
 }
 
@@ -82,7 +82,7 @@ p {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 4px; /* Padding inside the box */
     background: #EBEBEB;
 
@@ -93,7 +93,7 @@ p {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 8px; /* Padding inside the box */
     background: #EBEBEB;
 
@@ -103,9 +103,8 @@ p {
     margin: 0; /* Remove default margin */
     padding: 4px 0; /* Padding for spacing */
     font-size: 18px; /* Font size for the heading */
-    font-weight: 300;
+    font-weight: 400;
     text-align: left; /* Center align the heading */
-    color: #333; /* Text color */
 }
 
 .box p {
@@ -114,7 +113,6 @@ p {
     font-size: 28px; /* Font size for the paragraph */
     font-weight: 400; /* Normal weight for the text */
     text-align: center; /* Align text to the left */
-    color: #555; /* Text color */
     word-break: break-word; /* Ensure long words break correctly */
 }
 
@@ -122,9 +120,8 @@ p {
     margin: 0; /* Remove default margin */
     padding: 4px 0; /* Padding for spacing */
     font-size: 18px; /* Font size for the heading */
-    font-weight: 300;
+    font-weight: 400;
     text-align: left; /* Center align the heading */
-    color: #333; /* Text color */
 }
 
 .box-large p {
@@ -134,7 +131,6 @@ p {
     font-size: 28px; /* Font size for the paragraph */
     font-weight: 400; /* Normal weight for the text */
     text-align: center; /* Align text to the left */
-    color: #555; /* Text color */
     word-break: break-word; /* Ensure long words break correctly */
 }
 
@@ -224,12 +220,13 @@ p {
     background:lightgrey;
 }
 
-
+#cookieBox h2 {
+    margin-bottom: 4px;
+}
 .wave-wrapper {
     position: relative;
 
     padding: 4px 4px;
-    margin: 0px 0px 16px 0px;
 
     height: 40px; /* Enough height to display the wave */
     overflow: visible;
@@ -245,22 +242,18 @@ p {
 /* Position the cookie icon somewhere “on” the wave */
 .cookie-icon {
     position: absolute;
-
-    top: 30%;
-    left: 50%;
+    bottom: 11px;
     transform: translate(0, -50%);
     width: 36px; /* Adjust as needed */
     height: 36px;
-
 }
 
 /* Range container for "0" and "30+" text */
 .range {
+    margin-top: 6px;
     display: flex;
     justify-content: space-between;
-    margin-top: 4px;
     font-size: 0.85rem;
-    color: #555;
 }
 
 /* The arrow in the top-right corner (downward arrow) */
@@ -273,12 +266,14 @@ p {
     user-select: none;
 }
 
-.alt-btn {
+button.alt-btn {
     background-color: #EBEBEB;
+    border: 3px solid #d3d3d3;
     padding: 16px;
     border-radius: 16px;
-    border: none;
     margin: 8px;
+    font-size: 18px;
+    font-family: Josefin Sans, serif;
     font-weight: 700;
 }
 
@@ -290,7 +285,7 @@ p {
 }
 
 #searchChoice {
-    font-weight: 700;
+    font-weight: 400;
 }
 
 #altChoice {
