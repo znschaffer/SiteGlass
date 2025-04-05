@@ -33,7 +33,7 @@ p {
     padding: 8px; /* Padding inside the box */
     background: #EBEBEB;
     flex: 1 0 0;
-    margin:auto;
+    margin: auto;
 }
 
 #breaches {
@@ -51,19 +51,21 @@ p {
 .summaryRow {
     display: flex;
     gap: 16px;
-    margin-top:auto;
+    margin-top: auto;
     margin-bottom: auto;
 }
 
 .summaryRow summary:hover {
     cursor: pointer;
 }
+
 .summaryRow ul {
-    font-size:16px;
+    font-size: 16px;
     padding: 0px 18px;
     font-weight: 300;
     list-style: circle;
 }
+
 .summaryRow ul li {
     padding: 8px 0px;
 }
@@ -135,7 +137,7 @@ p {
 }
 
 .container {
-   flex: 1;
+    flex: 1;
     background: #FFFFFF;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -174,6 +176,11 @@ p {
 }
 
 .tabButton:hover {
+    background: lightgrey;
+    cursor: pointer;
+}
+
+#altLink:hover {
     background: lightgrey;
     cursor: pointer;
 }
@@ -233,7 +240,7 @@ p {
     user-select: none;
 }
 
-.alt-btn{
+.alt-btn {
     background-color: #EBEBEB;
     padding: 16px;
     border-radius: 16px;
@@ -242,7 +249,7 @@ p {
     font-weight: 700;
 }
 
-.alt-row{
+.alt-row {
     display: flex;
     gap: 8px;
     flex: 1;
