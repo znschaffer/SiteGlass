@@ -15,14 +15,13 @@ chrome.runtime.sendMessage({from: "popup", action: "getSiteRating"}, ({service, 
 });
 chrome.runtime.sendMessage({ from: "popup", action: "getBreaches" }, (response) => {
     document.getElementById("hostBreaches").innerHTML = Object.keys(response).length; // the Amount of Breaches
-    let totalPwnCount = 0;
-    // Calculate Total Affected People
-    for (let i = 0; i < Object.keys(response).length; i++) {
-        totalPwnCount += response[i].PwnCount;
-    }
-    document.getElementById("breachStats").innerHTML = totalPwnCount; // The Total Affected People
-    document.getElementById("hostLastBreach").innerHTML = response[0].BreachDate; // The Date of the Recent Breach
-    document.getElementById("hostName").innerHTML = response[0].Domain; // The Domain Name
+        let totalPwnCount = 0;
+        for (let i = 0; i < Object.keys(response).length; i++) {
+            totalPwnCount += response[i].PwnCount;
+        }
+        document.getElementById("breachStats").innerHTML = totalPwnCount; // The Total Affected People
+        document.getElementById("hostLastBreach").innerHTML = response[0].BreachDate; // The Date of the Recent Breach
+        document.getElementById("hostName").innerHTML = response[0].Domain; // The Domain Name
     console.log(response);
 });
 
@@ -32,8 +31,6 @@ if (clearCacheButton) clearCacheButton.addEventListener("click", () => {
     chrome.runtime.sendMessage({from: "popup", action: "clearCache"}, (response) => {
         clearCacheButton.innerHTML = "Cache Cleared";
         clearCacheButton.disabled = true;
-    })
-})
 
 
 document.querySelectorAll('.tabButton').forEach(button => {
