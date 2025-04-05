@@ -189,3 +189,46 @@ p {
     height: 100%;
 }
 
+
+.wave-wrapper {
+    position: relative;
+    margin: 8px 0;
+    height: 40px; /* Enough height to display the wave */
+    overflow: visible;
+}
+
+/* SVG wave itself */
+.wave {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Position the cookie icon somewhere “on” the wave */
+.cookie-icon {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    width: 28px; /* Adjust as needed */
+    height: 28px;
+}
+
+/* Range container for "0" and "30+" text */
+.range {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+/* The arrow in the top-right corner (downward arrow) */
+.arrow {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+}

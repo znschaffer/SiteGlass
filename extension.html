@@ -35,8 +35,40 @@
                 <p id="rating" style="padding-top: 16px; font-size: 48px"></p>
             </div>
             <div class="box">
+
                 <h2>Cookies:</h2>
-                <p id="cookies">Loading...</p>
+                <div class="wave-wrapper">
+                    <!-- Inline SVG wave with a green-to-red gradient stroke -->
+                    <svg class="wave" viewBox="0 0 500 50" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="waveGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+                                <stop offset="0%" stop-color="green" />
+                                <stop offset="50%" stop-color="orange" />
+                                <stop offset="100%" stop-color="red" />
+                            </linearGradient>
+                        </defs>
+                        <!-- A repeating wave path. Feel free to adjust! -->
+                        <path d="M0,25
+               C 40,0  60,50 100,25
+               C140,0  160,50 200,25
+               C240,0  260,50 300,25
+               C340,0  360,50 400,25
+               C440,0  460,50 500,25"
+                              fill="none"
+                              stroke="url(#waveGradient)"
+                              stroke-width="6" />
+                    </svg>
+
+                    <!-- Cookie icon; replace src with your own cookie image or an emoji -->
+                    <span class="cookie-icon"  id="cookieIcon" style="font-size:32px">🍪</span>
+                    <div class="range">
+                        <span>0</span>
+                        <span>30+</span>
+                    </div>
+
+
+
+                </div>
             </div>
         </div>
         <div class="summaryRow">
