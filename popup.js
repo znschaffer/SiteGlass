@@ -32,8 +32,8 @@ chrome.runtime.sendMessage({from: "popup", action: "getBreaches"}, (response) =>
     for (let i = 0; i < Object.keys(response).length; i++) {
         totalPwnCount += response[i].PwnCount;
     }
-    document.getElementById("breachStats").innerHTML = totalPwnCount; // The Total Affected People
-    document.getElementById("hostLastBreach").innerHTML = response[0] ? response[0].BreachDate : "Unknown"; // The Date of the Recent Breach
+    document.getElementById("breachStats").innerHTML = totalPwnCount.toLocaleString(); // The Total Affected People
+    document.getElementById("hostLastBreach").innerHTML = response[0] ? new Date(response[0].BreachDate).toLocaleDateString() : "Unknown"; // The Date of the Recent Breach
     document.getElementById("hostName").innerHTML = response[0] ? response[0].Domain : document.getElementById("siteName").innerHTML; // The Site Name
 
 });
