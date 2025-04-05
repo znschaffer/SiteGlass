@@ -21,6 +21,7 @@ const altSiteCache = {
     "aliexpress": {"search": "Aliexpress", "alternative": "EcoCart", "link": "https://ecocart.io/"},
     "walmart": {"search": "Walmart", "alternative": "EcoCart", "link": "https://ecocart.io/"},
     "temu": {"search": "Temu", "alternative": "EcoCart", "link": "https://ecocart.io/"},
+    "stackoverflow": {"search": "Stack Overflow", "alternative": "Dev.to", "link": "https://dev.to/"},
     "none" : {"search": "", "alternative": "There are currently no recommended alternatives for this site.", "link": "none"}
 };
 
