@@ -1,3 +1,4 @@
+
 function getSiteRating(request, sendResponse) {
     if (request.action === "getData") {
         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
@@ -8,14 +9,31 @@ function getSiteRating(request, sendResponse) {
                 const cached = result[domain];
 
                 if (!cached) {
+                    let url = `https://api.tosdr.org/search/v5?${params}`
+                    console.log(url)
                     // Fetch from API if not cached
-                    fetch(`https://api.tosdr.org/search/v5?${params}`)
+                    fetch(url)
                         .then((response) => response.json())
-                        .then((data) => {
-                            // Cache the data
-                            chrome.storage.local.set({[domain]: data}, () => {
-                                sendResponse(data);
-                            });
+                        .then((resp) => {
+                            let data = null
+                            console.log(resp)
+                            console.log(params)
+                            resp.services.find((item) => {
+                                if (item.urls.includes(domain)) {
+                                    data = item
+                                }
+                                console.log(item)
+                            })
+                            console.log(data)
+                            if (data) {
+                                // Cache the data
+                                chrome.storage.local.set({[domain]: data}, () => {
+                                    sendResponse(data);
+                                });
+                            } else {
+                                sendResponse(null);
+                            }
+
                         })
                         .catch((error) => {
                             console.error("Fetch error:", error);
