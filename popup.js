@@ -15,9 +15,79 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response && response.cookies) {
             const cookiesList = response.cookies.map(cookie => `${cookie.name}: ${cookie.value}`);
             document.getElementById("getCookies").textContent = cookiesList.join(", ");
+            //document.getElementById("getCookiesCount").textContent = response.cookiesList.size;
+
+
+
         } else {
             document.getElementById("getCookies").textContent = "No cookies found.";
         }
         console.log("GetCookies Response:", response);
     });
-});
+
+    chrome.runtime.sendMessage({ from: "popup", action: "getCookiesCount" }, (response) => {
+            if (chrome.runtime.lastError) {
+                console.error("Error:", chrome.runtime.lastError.message);
+                document.getElementById("getCookiesCount").textContent = "Failed to retrieve cookies.";
+                return;
+            }
+
+            if (response && response.cookies) {
+                const cookiesList = response.cookies.map(cookie => `${cookie.name}: ${cookie.value}`);
+                document.getElementById("getCookiesCount").textContent = response.cookies.length;
+
+            } else {
+                document.getElementById("getCookiesCount").textContent = "No cookies found.";
+            }
+            console.log("GetCookies Count Response:", response);
+        });
+
+
+    chrome.runtime.sendMessage({ from: "popup", action: "organizeCount" }, (response) => {
+        if (response && response.cookies) {
+
+            const { counts } = organizeCookies(response.cookies);
+
+
+            document.getElementById("functionalCount").textContent = counts.functional;
+            document.getElementById("analyticalCount").textContent = counts.analytical;
+            document.getElementById("marketingCount").textContent = counts.marketing;
+            document.getElementById("miscCount").textContent = counts.misc;
+
+        } else {
+                console.error("No cookies received.");
+            }
+        });
+    });
+
+
+function organizeCookies(cookies) {
+    const categories = {
+        functional: [],
+        analytical: [],
+        marketing: [],
+        misc: []
+    };
+
+    cookies.forEach(cookie => {
+        if (cookie.name.includes("session") || cookie.name.includes("auth") || cookie.name.includes("language")) {
+            categories.functional.push(cookie);
+        } else if (cookie.name.includes("analytics") || cookie.name.includes("track")) {
+            categories.analytical.push(cookie);
+        } else if (cookie.name.includes("ad") || cookie.name.includes("campaign")) {
+            categories.marketing.push(cookie);
+        } else {
+            categories.misc.push(cookie);
+        }
+    });
+
+    // Add counts for each category
+    const counts = {
+        functional: categories.functional.length,
+        analytical: categories.analytical.length,
+        marketing: categories.marketing.length,
+        misc: categories.misc.length
+    };
+
+    return { categories, counts };
+}
