@@ -16,12 +16,21 @@ body {
     gap: 8px;
 }
 
+#rating {
+    bottom: 0;
+    height: 80px;
+    line-height: 80px;
+    padding: none;
+    margin: none;
+    font-size: 48px;
+}
+
 p {
     font-family: Young Serif, serif; /* Fallback font for better readability */
 }
 
 .ratingBox {
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 4px; /* Padding inside the box */
     background: #EBEBEB;
     flex: 1 0 0;
@@ -29,7 +38,7 @@ p {
 
 
 .summaryBox {
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 8px; /* Padding inside the box */
     background: #EBEBEB;
     flex: 1 0 0;
@@ -82,18 +91,18 @@ p {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 4px; /* Padding inside the box */
     background: #EBEBEB;
 
 }
 
 .box {
-
+    height: 80px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 8px; /* Padding inside the box */
     background: #EBEBEB;
 
@@ -101,20 +110,17 @@ p {
 
 .box h2 {
     margin: 0; /* Remove default margin */
-    padding: 4px 0; /* Padding for spacing */
     font-size: 18px; /* Font size for the heading */
-    font-weight: 300;
+    font-weight: 400;
     text-align: left; /* Center align the heading */
-    color: #333; /* Text color */
 }
 
 .box p {
-    margin: 0; /* Remove default margin */
-    padding: 4px 4px 12px 4px; /* Padding for spacing */
-    font-size: 28px; /* Font size for the paragraph */
+    bottom: -12px;
+    margin: auto;
+    position: relative;
+    font-size: 28px;
     font-weight: 400; /* Normal weight for the text */
-    text-align: center; /* Align text to the left */
-    color: #555; /* Text color */
     word-break: break-word; /* Ensure long words break correctly */
 }
 
@@ -122,9 +128,8 @@ p {
     margin: 0; /* Remove default margin */
     padding: 4px 0; /* Padding for spacing */
     font-size: 18px; /* Font size for the heading */
-    font-weight: 300;
+    font-weight: 400;
     text-align: left; /* Center align the heading */
-    color: #333; /* Text color */
 }
 
 .box-large p {
@@ -134,22 +139,21 @@ p {
     font-size: 28px; /* Font size for the paragraph */
     font-weight: 400; /* Normal weight for the text */
     text-align: center; /* Align text to the left */
-    color: #555; /* Text color */
     word-break: break-word; /* Ensure long words break correctly */
 }
 
 .container {
     flex: 1;
     background: #FFFFFF;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
     padding: 8px;
 }
 
 .tabGroup {
     background: #D9D9D9;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
     border: 0 solid darkgrey;
     border-bottom: 0;
     display: flex;
@@ -162,8 +166,8 @@ p {
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
     margin: auto;
     height: 100%;
     width: 100%;
@@ -227,10 +231,7 @@ p {
 
 .wave-wrapper {
     position: relative;
-
-    padding: 4px 4px;
-    margin: 0px 0px 16px 0px;
-
+    margin-top: 4px;
     height: 40px; /* Enough height to display the wave */
     overflow: visible;
 }
@@ -240,18 +241,15 @@ p {
     width: 100%;
     height: 100%;
     display: block;
+    margin: auto;
 }
 
 /* Position the cookie icon somewhere “on” the wave */
 .cookie-icon {
     position: absolute;
-
-    top: 30%;
-    left: 50%;
-    transform: translate(0, -50%);
-    width: 36px; /* Adjust as needed */
-    height: 36px;
-
+    bottom: 22px;
+    width: 28px; /* Adjust as needed */
+    height: 28px;
 }
 
 /* Range container for "0" and "30+" text */
@@ -259,8 +257,7 @@ p {
     display: flex;
     justify-content: space-between;
     margin-top: 4px;
-    font-size: 0.85rem;
-    color: #555;
+    font-size: 18px;
 }
 
 /* The arrow in the top-right corner (downward arrow) */
