@@ -17,6 +17,7 @@
     "storage",
     "tabs",
     "activeTab",
-    "scripting"
+    "scripting",
+    "cookies"
   ]
 }
