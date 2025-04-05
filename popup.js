@@ -64,17 +64,17 @@ chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         document.getElementById("altChoice").textContent = "consider " + siteAlternatives.alternative + " instead!";
 
         
-        // Flash Icon
-        for (let i = 0; i < 4; i++) {
-            chrome.action.setIcon({
-                path: "icons/Inactive Favicon.png"
-            });
-            wait(1000).then();
-            chrome.action.setIcon({
-                path: "icons/Active_Favicon.png"
-            });
-            wait(1000).then();
-        }
+        // // Flash Icon
+        // for (let i = 0; i < 4; i++) {
+        //     chrome.action.setIcon({
+        //         path: "icons/Inactive Favicon.png"
+        //     });
+        //     wait(1000).then();
+        //     chrome.action.setIcon({
+        //         path: "icons/Active_Favicon.png"
+        //     });
+        //     wait(1000).then();
+        // }
 
 
         let altLink = document.getElementById("altLink");
