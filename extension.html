@@ -26,8 +26,8 @@
     <div class="tab" id="privacy">
 
         <div class="box">
-            <h2>Website:</h2>
-            <p><span id="siteName">Loading...</span></p>
+            <h2 >Website:</h2>
+            <p style="margin-top: -16px"><span id="siteName">Loading...</span></p>
         </div>
 
         <div class="row">
@@ -36,8 +36,7 @@
                 <h2 style="text-orientation: mixed; ; writing-mode: sideways-lr">Grade:</h2>
                 <p id="rating" style="padding-top: 16px; font-size: 48px"></p>
             </div>
-            <div class="box">
-
+            <div class="box" id="cookieBox">
                 <h2>Cookie Tally:</h2>
                 <div class="wave-wrapper">
                     <!-- Inline SVG wave with a green-to-red gradient stroke -->
@@ -62,13 +61,28 @@
                     </svg>
 
                     <!-- Cookie icon; replace src with your own cookie image or an emoji -->
-                    <span class="cookie-icon" id="cookieIcon" style="font-size:46px">🍪</span>
+
+
+                    <span class="cookie-icon"  id="cookieIcon" style="font-size:40px">🍪</span>
+
                     <div class="range">
                         <span>0</span>
                         <span>30+</span>
                     </div>
 
 
+                </div>
+                <div id="cookieStats" class="hide">
+                    <h3 style="font-weight: bold">Categories:</h3>
+                    <hr>
+                    <p>First-Party: <span id="firstPartyCookies"></span></p>
+                    <hr>
+                    <p>Functional: <span id="functionalCount"></span></p>
+                    <hr>
+                    <p>Analytics: <span id="analyticalCount"></span></p>
+                    <hr>
+                    <p>Marketing: <span id="marketingCount"></span></p>
+                    <hr>
                 </div>
             </div>
         </div>
@@ -97,7 +111,7 @@
 
         <div class="box">
             <h2>Website:</h2>
-            <p><span id="hostName">Loading...</span></p>
+            <p style="margin-top: -16px"><span id="hostName">Loading...</span></p>
         </div>
 
         <div class="row">

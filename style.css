@@ -57,17 +57,20 @@ p {
 
 .summaryRow summary:hover {
     cursor: pointer;
+
 }
 
 .summaryRow ul {
-    font-size: 16px;
-    padding: 0px 18px;
+    font-size:16px;
+    padding: 0px 28px;
+
     font-weight: 300;
-    list-style: circle;
+    list-style: square;
 }
 
 .summaryRow ul li {
     padding: 8px 0px;
+    line-height: 18px;
 }
 
 .row > div {
@@ -106,7 +109,6 @@ p {
 }
 
 .box p {
-
     margin: 0; /* Remove default margin */
     padding: 4px 4px 12px 4px; /* Padding for spacing */
     font-size: 28px; /* Font size for the paragraph */
@@ -189,17 +191,46 @@ p {
     background: #FFFFFF;
 }
 
+.hide {
+    display: none;
+}
 .tab {
     background: #FFFFFF;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
+#cookieStats {
+    padding-top: 16px;
+}
+#cookieStats h3 {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Josefin Sans, serif;
+    text-align: left;
+    padding: 0px;
+    margin: 0;
+}
+#cookieStats p {
+    font-size: 14px;
+    font-family: Josefin Sans, serif;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+}
+
+#cookieBox:hover {
+    cursor: pointer;
+    background:lightgrey;
+}
 
 
 .wave-wrapper {
     position: relative;
-    margin: 8px 0;
+
+    padding: 4px 4px;
+    margin: 0px 0px 16px 0px;
+
     height: 40px; /* Enough height to display the wave */
     overflow: visible;
 }
@@ -214,11 +245,13 @@ p {
 /* Position the cookie icon somewhere “on” the wave */
 .cookie-icon {
     position: absolute;
-    top: 14%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    width: 28px; /* Adjust as needed */
-    height: 28px;
+
+    top: 30%;
+    left: 50%;
+    transform: translate(0, -50%);
+    width: 36px; /* Adjust as needed */
+    height: 36px;
+
 }
 
 /* Range container for "0" and "30+" text */
