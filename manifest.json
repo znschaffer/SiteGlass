@@ -12,6 +12,12 @@
   "host_permissions": [
     "<all_urls>"
   ],
+  "icons": {
+    "16": "icons/Active_Favicon.png",
+    "32": "icons/Active_Favicon.png",
+    "48": "icons/Active_Favicon.png",
+    "128": "icons/Active_Favicon.png"
+  },
   "options_page": "options.html",
   "permissions": [
     "storage",
