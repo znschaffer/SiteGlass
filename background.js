@@ -5,7 +5,12 @@ function clearCache(request, sendResponse) {
 
 function getSiteRating(request, sendResponse) {
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-        let domain = new URL(tabs[0].url).hostname
+        if (tabs.length === 0) {
+            return;
+        }
+        let {url} = tabs[0];
+        // @ts-ignore
+        let domain = new URL(url).hostname
 
         // handle leading www
         if (domain.split('.')[0] === 'www') {
@@ -18,19 +23,16 @@ function getSiteRating(request, sendResponse) {
             const cached = result[domain];
             if (!cached) {
                 let url = `https://api.tosdr.org/search/v5?${params}`
-                console.log(url)
                 // Fetch from API if not cached
                 fetch(url)
                     .then((response) => response.json())
-                    .then((resp) => {
-                        let data = null
-                        resp.services.find((item) => {
-                            if (item.urls.includes(domain)) {
-                                data = item
-                            }
-                        })
+                    .then(async (resp) => {
+                        let service = resp.services.find(item => item.urls.includes(domain));
+                        if (service) {
 
-                        if (data) {
+
+                            let concerns = await getPrivacyConcerns(service.id)
+                            const data = {service, concerns}
                             // Cache the data
                             chrome.storage.local.set({[domain]: data}, () => {
                                 sendResponse(data);
@@ -55,11 +57,20 @@ function getSiteRating(request, sendResponse) {
 
 }
 
+async function getPrivacyConcerns(id) {
+    try {
+        const response = await fetch(`https://api.tosdr.org/service/v3?id=${id}`);
+        return await response.json();
+    } catch (error) {
+        console.error("Failed to fetch concerns:", error);
+        return null;
+    }
+}
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "getSiteRating") {
         return getSiteRating(request, sendResponse);
     } else if (request.action === "clearCache") {
         return clearCache(request, sendResponse);
     }
-
 });
