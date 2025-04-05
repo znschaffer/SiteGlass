@@ -6,23 +6,21 @@ CookieMonster is a powerful privacy-focused Chrome extension that helps users as
 
 - **Website Privacy Grade**: Instantly view a website's privacy rating based on tracking, data collection, and third-party involvement.
 - **Cookie Analysis**: Breakdown of cookies stored by a website, including third-party and advertising trackers.
-- **Software Alternatives**: Pop-up suggestions for privacy-friendly alternatives to commonly used websites.
+- **Software Alternatives**: Alerts the user to privacy-friendly alternatives when they attempt to download commonly used software.
 - **Breach Notification**: Check a website's history of security breaches using the [Have I Been Pwned API](https://haveibeenpwned.com/API/v3#AllBreaches).
-- **Tab Navigation**: Use the `Tab` key to switch between features for an intuitive browsing experience.
 
 ## Installation
 
-1. Download the latest version of CookieMonster.
+1. Download the latest version of CookieMonster and unzip it.
 2. Open Chrome and navigate to `chrome://extensions/`.
 3. Enable "Developer mode" in the top-right corner.
-4. Click "Load unpacked" and select the CookieMonster extension folder.
+4. Click "Load unpacked" and select the unzipped CookieMonster extension folder.
 
 ## Usage
 
-1. Click the CookieMonster icon in your Chrome toolbar.
-2. Navigate through the tabs using the `Tab` key or by clicking on feature sections.
+1. Click the CookieMonster icon in your Chrome extensions toolbar.
 3. View website privacy ratings, cookie details, and alternative recommendations.
-4. Check for security breaches affecting the current website.
+4. Check the website's history of security breaches and their severities.
 
 ## API Integration
 
