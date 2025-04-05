@@ -15,7 +15,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
             domain = new URL(tabs[0].url);
 
-            const params = new URLSearchParams({Domain: 'abandonia.com'}); // Check if Domain parameter = domain of tab
+            const fixedDomain = SplitDomain(domain);
+
+            const params = new URLSearchParams({Domain: fixedDomain}); // Check if Domain parameter = domain of tab
             fetch(`https://haveibeenpwned.com/api/v3/breaches?${params}`).then((response) => response.json()).then((data) => {
                 sendResponse(data);
             });
@@ -24,3 +26,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
     return true;
 });
+
+// Helper Method for Splitting Domain
+function SplitDomain(url) {
+    const urlConst = new URL(url);
+    const splitLink = urlConst.hostname.split('.'); // Splits link @ . 
+
+    let domainLink = splitLink.slice(-2);
+
+    return domainLink.join('.');
+
+}
