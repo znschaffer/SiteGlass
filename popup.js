@@ -32,7 +32,7 @@ chrome.runtime.sendMessage({ from: "popup", action: "getBreaches" }, (response) 
         }
         document.getElementById("breachStats").innerHTML = totalPwnCount; // The Total Affected People
         document.getElementById("hostLastBreach").innerHTML = response[0] ? response[0].BreachDate : "Unknown"; // The Date of the Recent Breach
-        document.getElementById("hostName").innerHTML = response[0] ? response[0].Domain : ""; // The Site Name
+        document.getElementById("hostName").innerHTML = response[0] ? response[0].Domain : document.getElementById("siteName").innerHTML; // The Site Name
         console.log(response);
 });
 
